@@ -1,0 +1,17 @@
+<!-- Ouverture : le monogramme « C » se grave, une fois par visite (repris du premier site) -->
+<div class="mono" data-mono aria-hidden="true">
+  <div class="mono__mark" data-mono-mark>
+    <svg class="mono__seal" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="mono-brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E3A18"/><stop offset=".38" stop-color="#E7AE78"/><stop offset=".56" stop-color="#B4652F"/><stop offset="1" stop-color="#5A2F12"/></linearGradient>
+        <linearGradient id="mono-shine" x1="-1" y1="0" x2="0" y2="0" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#FFF1DC" stop-opacity="0"/><stop offset=".5" stop-color="#FFF1DC" stop-opacity=".9"/><stop offset="1" stop-color="#FFF1DC" stop-opacity="0"/></linearGradient>
+      </defs>
+      <circle class="mono__ring" cx="60" cy="60" r="56" pathLength="1"/>
+      <circle class="mono__ring mono__ring--in" cx="60" cy="60" r="51" pathLength="1"/>
+      <text class="mono__c" x="60" y="61" text-anchor="middle" dominant-baseline="central" fill="url(#mono-brass)">C</text>
+      <text class="mono__c mono__c--shine" x="60" y="61" text-anchor="middle" dominant-baseline="central" fill="url(#mono-shine)">C</text>
+    </svg>
+    <p class="mono__year"><span>Maison fondée en</span> 1875</p>
+  </div>
+</div>
+<script>(function(r){var m=document.querySelector('[data-mono]');try{if(r.classList.contains('motion')&&!r.classList.contains('is-arriving')&&sessionStorage.getItem('mc-mono')!=='1'){sessionStorage.setItem('mc-mono','1');r.classList.add('mono-on');return;}}catch(e){}if(m)m.parentNode.removeChild(m);})(document.documentElement);</script>

@@ -884,3 +884,20 @@ a, button, summary { transition: color .3s var(--ease), background-color .3s var
   .vhero { height: 100vh; height: 100lvh; background: var(--espresso); }
   .vhero__content { padding-bottom: 56px; padding-bottom: calc(56px + 100lvh - 100svh + env(safe-area-inset-bottom)); }
 }
+
+/* ===== Ouverture « C » (monogramme du premier site, aux couleurs actuelles) ===== */
+.mono { display: none; }
+html.mono-on .mono {
+  position: fixed; inset: 0; z-index: 300; display: grid; place-items: center;
+  background: radial-gradient(60vmax 60vmax at 50% 46%, #3A2416 0%, var(--espresso) 62%);
+  animation: mono-failsafe .6s ease 5s forwards;
+}
+.mono__mark { display: grid; justify-items: center; gap: 20px; }
+.mono__seal { width: clamp(140px, 22vh, 210px); height: auto; overflow: visible; filter: drop-shadow(0 0 26px rgba(219, 152, 98, .28)); }
+.mono__ring { fill: none; stroke: url(#mono-brass); stroke-width: 1.2; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.mono__ring--in { stroke-width: .6; opacity: .7; }
+.mono__c { font-family: var(--serif); font-weight: 500; font-size: 78px; opacity: 0; }
+.mono__c--shine { mix-blend-mode: screen; }
+.mono__year { margin: 0; font-family: var(--serif); font-size: 1.25rem; letter-spacing: .32em; padding-left: .32em; color: var(--cognac-l); opacity: 0; white-space: nowrap; }
+.mono__year span { font-family: var(--sans); font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: rgba(250, 243, 232, .62); margin-right: .6em; vertical-align: .25em; }
+@keyframes mono-failsafe { to { opacity: 0; visibility: hidden; } }

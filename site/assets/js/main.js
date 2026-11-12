@@ -24,7 +24,7 @@
       gsap.ticker.lagSmoothing(0);
     }
   } else {
-    root.classList.remove('has-intro', 'is-arriving');
+    root.classList.remove('has-intro', 'is-arriving', 'mono-on');
   }
   /* Défilement déclenché par le site (ancre, haut de page) : l'en-tête ne doit pas se cacher */
   let programmatic = 0;
@@ -360,6 +360,32 @@
 
   /* Entrée de page : pas d'écran d'attente, le contenu arrive tout de suite */
   const heroTl = gsap.timeline({ delay: root.classList.contains('is-arriving') ? .25 : .05 });
+
+  /* Ouverture « C » (accueil, une fois par visite) : le hero attend la fin du monogramme */
+  const mono = $('[data-mono]');
+  if (mono && root.classList.contains('mono-on')) {
+    heroTl.pause();
+    let exited = false;
+    const finish = () => { mono.remove(); root.classList.remove('mono-on'); };
+    const exit = () => { if (exited) return; exited = true; heroTl.play(0); };
+    const rings = $$('.mono__ring', mono);
+    const tl = gsap.timeline({ onComplete: finish });
+    tl.fromTo($('[data-mono-mark]', mono), { scale: .94 }, { scale: 1, duration: 1.8, ease: 'power2.out' }, 0)
+      .to(rings, { strokeDashoffset: 0, duration: .9, ease: 'power2.inOut', stagger: .12 }, .1)
+      .to($$('.mono__c', mono), { opacity: 1, duration: .6, ease: 'power1.out' }, .32)
+      .fromTo($('#mono-shine', mono), { attr: { x1: -1, x2: 0 } }, { attr: { x1: 1.2, x2: 2.2 }, duration: .8, ease: 'power2.inOut' }, .55)
+      .fromTo($('.mono__year', mono), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .5, ease: 'power2.out' }, .62)
+      .to($('[data-mono-mark]', mono), { opacity: 0, scale: 1.06, duration: .5, ease: 'power2.in' }, 1.75)
+      .to(mono, { opacity: 0, duration: .6, ease: 'power2.inOut' }, 1.95)
+      .add(exit, 2.0);
+    /* Passer d'un geste : toucher, défiler ou touche clavier */
+    const skip = () => {
+      if (exited) return;
+      tl.kill(); exit();
+      gsap.to(mono, { opacity: 0, duration: .35, ease: 'power1.out', onComplete: finish });
+    };
+    ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach((ev) => window.addEventListener(ev, skip, { once: true, passive: true }));
+  }
 
   /* Hero vidéo : logo, titre, puis effet « carte » au défilement */
   const vhero = heroEl;
