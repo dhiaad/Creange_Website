@@ -907,16 +907,17 @@ html.mono-on .mono {
 .t-light, .t-lin2 { --ph-bg: #E2D2B8; }
 .t-lin2 { --bg: #F4E8D3; --ph-bg: #E6D7BE; }
 
-.manifesto { position: relative; overflow: hidden; isolation: isolate; }
+.manifesto { position: relative; }
+/* Filigrane statique : pas de fusion, pas de filtre, pas de parallaxe (léger à défiler, y compris sur téléphone) */
 .manifesto__mono {
-  position: absolute; z-index: -1; pointer-events: none;
-  right: clamp(-20px, 6vw, 160px); top: clamp(40px, 4vw, 80px);
+  position: absolute; z-index: 0; pointer-events: none;
+  right: clamp(16px, 6vw, 160px); top: clamp(40px, 4vw, 80px);
   width: clamp(260px, 27vw, 500px); aspect-ratio: 1;
-  opacity: .14; mix-blend-mode: multiply;
-  filter: drop-shadow(0 30px 60px rgba(138, 74, 33, .18));
+  opacity: .16; contain: strict;
 }
-.manifesto__mono svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.manifesto > .wrap { position: relative; z-index: 1; }
+.manifesto__mono svg { width: 100%; height: 100%; display: block; }
 .manifesto__mono text { font-family: var(--serif); font-weight: 500; font-size: 78px; }
 @media (max-width: 900px) {
-  .manifesto__mono { width: 78vw; right: -22vw; top: 40px; opacity: .09; }
+  .manifesto__mono { width: 64vw; right: 0; top: 24px; opacity: .1; clip-path: inset(0 0 0 0); }
 }
