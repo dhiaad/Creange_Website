@@ -643,20 +643,6 @@ html.lenis, html.lenis body { height: auto; }
 .menu-mobile { justify-content: flex-start; gap: 40px; }
 .menu-mobile__foot { margin-top: 0; }
 
-/* B6 : barre d'action fixe sur mobile */
-.mbar { display: none; }
-@media (max-width: 1020px) {
-  .mbar {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 95; display: grid; grid-template-columns: 1fr 1fr;
-    background: var(--espresso); border-top: 1px solid rgba(246, 242, 235, .14);
-    padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom)); gap: 10px;
-    transform: translateY(110%); transition: transform .5s var(--ease);
-  }
-  .mbar.is-on { transform: none; }
-  .mbar .btn { min-height: 46px; padding: 0 12px; font-size: .88rem; color: var(--craie); }
-  body.menu-open .mbar { transform: translateY(110%); }
-  .site-footer { padding-bottom: 96px; }
-}
 
 /* La maison : histoire sans chiffre géant */
 .story { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 56px clamp(20px, 3vw, 48px); align-items: start; }
@@ -827,7 +813,6 @@ a, button, summary { transition: color .3s var(--ease), background-color .3s var
 .consent__row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
 .consent__row small { grid-column: 1; color: var(--fg-soft); font-size: .82rem; }
 .consent__row input { grid-row: 1 / span 2; grid-column: 2; width: 20px; height: 20px; accent-color: var(--cognac); }
-@media (max-width: 1020px) { .consent { bottom: 84px; } }
 
 /* Mention RGPD sous le formulaire */
 .form-note { font-size: .82rem; color: var(--fg-soft); line-height: 1.6; }
@@ -852,8 +837,6 @@ a, button, summary { transition: color .3s var(--ease), background-color .3s var
 .btn--call { width: 52px; padding: 0; gap: 0; flex: none; }
 .btn--call svg { display: block; }
 .header-pair .btn--call { width: 42px; min-height: 42px; }
-.mbar .btn svg { flex: none; }
-.mbar .btn { gap: 10px; }
 
 /* Icône du menu : deux traits nets à toutes les densités d'écran */
 .menu-toggle__bars { gap: 7px; }
@@ -894,3 +877,10 @@ a, button, summary { transition: color .3s var(--ease), background-color .3s var
 /* Écrans larges mais bas (portable, tablette paysage) : le titre suit aussi la hauteur */
 .vhero__title { font-size: min(clamp(3.2rem, 1.2rem + 7.4vw, 9.6rem), 12.5svh); }
 @media (max-height: 700px) { .vhero__content { padding-bottom: 40px; } .vhero__foot { margin-top: 20px; } }
+
+/* Accueil sur téléphone : la vidéo couvre tout l'écran, barre d'adresse repliée ou non,
+   sans laisser voir la section claire en dessous */
+@media (max-width: 900px) {
+  .vhero { height: 100vh; height: 100lvh; background: var(--espresso); }
+  .vhero__content { padding-bottom: 56px; padding-bottom: calc(56px + 100lvh - 100svh + env(safe-area-inset-bottom)); }
+}

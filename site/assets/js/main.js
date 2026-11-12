@@ -39,7 +39,6 @@
   const header = $('[data-header]');
   const solidAlways = document.body.hasAttribute('data-header-solid');
   const heroEl = $('[data-vhero]');
-  const mbar = $('[data-mbar]');
   let lastY = window.scrollY;
   const updateHeader = () => {
     if (!header) return;
@@ -51,7 +50,6 @@
       if (y > lastY + 4 && y > keepUntil) header.classList.add('is-hidden');
       else if (y < lastY - 4 || y <= keepUntil) header.classList.remove('is-hidden');
     }
-    if (mbar) mbar.classList.toggle('is-on', y > (heroEl ? heroEl.offsetHeight * .6 : 320));
     lastY = y;
   };
   updateHeader();
@@ -374,8 +372,11 @@
       .from($$('[data-hero-in], .site-nav li, .header-cta', document), { opacity: 0, y: 16, duration: .8, ease: 'power3.out', stagger: .05, clearProps: 'opacity,transform' }, .45);
 
     const frame = $('[data-vhero-frame]', vhero);
-    gsap.timeline({ scrollTrigger: { trigger: vhero, start: 'top top', end: 'bottom top', scrub: true } })
-      .fromTo(frame, { clipPath: 'inset(0% 0% 0% 0% round 0px)' }, { clipPath: 'inset(6% 4% 6% 4% round 16px)', ease: 'none' }, 0)
+    /* Sur téléphone, pas d'effet de cadre : la vidéo reste pleine largeur jusqu'à la section suivante */
+    const big = matchMedia('(min-width: 901px)').matches;
+    const heroScroll = gsap.timeline({ scrollTrigger: { trigger: vhero, start: 'top top', end: 'bottom top', scrub: true } });
+    if (big) heroScroll.fromTo(frame, { clipPath: 'inset(0% 0% 0% 0% round 0px)' }, { clipPath: 'inset(6% 4% 6% 4% round 16px)', ease: 'none' }, 0);
+    heroScroll
       .to($('.vhero__video', vhero), { yPercent: 10, ease: 'none' }, 0)
       .to($('[data-vhero-content]', vhero), { yPercent: -30, opacity: 0, ease: 'none' }, 0)
       ;
