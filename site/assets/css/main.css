@@ -846,3 +846,51 @@ a, button, summary { transition: color .3s var(--ease), background-color .3s var
 .colhero__name { font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2.2rem); }
 .colhero__stage { width: 100%; max-width: calc(74svh * .8); justify-self: end; }
 @media (max-width: 900px) { .colhero__stage { justify-self: center; max-width: 380px; } }
+
+/* ===== Mobile v5 : bouton d'appel, menu, carrousel, cibles tactiles ===== */
+.btn-pair { display: inline-flex; align-items: stretch; gap: 10px; }
+.btn--call { width: 52px; padding: 0; gap: 0; flex: none; }
+.btn--call svg { display: block; }
+.header-pair .btn--call { width: 42px; min-height: 42px; }
+.mbar .btn svg { flex: none; }
+.mbar .btn { gap: 10px; }
+
+/* Icône du menu : deux traits nets à toutes les densités d'écran */
+.menu-toggle__bars { gap: 7px; }
+.menu-toggle__bars span { height: 1.5px; border-radius: 1px; }
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars span:first-child { transform: translateY(4.25px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars span:last-child { transform: translateY(-4.25px) rotate(-45deg); }
+
+.hscroll__hint { display: none; }
+
+@media (max-width: 1020px) {
+  .site-header__inner { gap: 16px; }
+  .header-pair { display: inline-flex; }
+  .header-pair .header-cta { display: none; }
+  .header-pair .btn--call { width: 44px; min-height: 44px; border-color: rgba(246, 242, 235, .35); }
+  .menu-toggle { min-height: 44px; }
+}
+
+@media (max-width: 900px) {
+  /* Carrousel des collections : le texte reste fixe, seules les cartes glissent */
+  .hscroll__track { display: grid; grid-auto-flow: column; grid-auto-columns: 76vw; grid-template-rows: auto auto; gap: 28px 16px; }
+  .hscroll__intro { grid-row: 1; grid-column: 1 / span 4; width: calc(100vw - 2 * var(--gutter)); position: sticky; left: 0; scroll-snap-align: none; }
+  .hscroll__hint { display: block; margin-top: 24px; }
+  .hcard { grid-row: 2; width: auto; }
+}
+
+@media (max-width: 600px) {
+  .vhero__actions { gap: 14px 24px; }
+  .vhero__actions .btn-pair { width: 100%; }
+  .vhero__actions .btn-pair .btn--solid { flex: 1; padding: 0 18px; }
+  .actions .btn-pair { width: 100%; }
+  .actions .btn-pair .btn--solid { flex: 1; padding: 0 18px; }
+  /* Pied de page : liens assez grands pour le doigt */
+  .site-footer ul { gap: 0; }
+  .site-footer ul a, .site-footer ul .to-top { display: inline-flex; align-items: center; min-height: 40px; }
+  .site-footer__social a, .site-footer__bottom .to-top { display: inline-flex; align-items: center; min-height: 40px; }
+  .site-footer__cols p a { display: inline-block; padding: 6px 0; }
+}
+/* Écrans larges mais bas (portable, tablette paysage) : le titre suit aussi la hauteur */
+.vhero__title { font-size: min(clamp(3.2rem, 1.2rem + 7.4vw, 9.6rem), 12.5svh); }
+@media (max-height: 700px) { .vhero__content { padding-bottom: 40px; } .vhero__foot { margin-top: 20px; } }
