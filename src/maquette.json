@@ -1,0 +1,31 @@
+{
+  "_note": "Images de maquette (Pexels, licence libre). node build.mjs les télécharge dans site/assets/img/maquette/ : les visiteurs ne chargent rien depuis Pexels. Elles s affichent tant que la vraie photo n est pas déposée dans site/assets/img/photos/. Choix : cadrages sans visage reconnaissable.",
+  "photos": {
+    "P02": "https://images.pexels.com/photos/8257325/pexels-photo-8257325.jpeg",
+    "P03": "https://images.pexels.com/photos/3023669/pexels-photo-3023669.jpeg",
+    "P04": "https://images.pexels.com/photos/8553594/pexels-photo-8553594.jpeg",
+    "P05": "https://images.pexels.com/photos/5264933/pexels-photo-5264933.jpeg",
+    "P10": "https://images.pexels.com/photos/5424922/pexels-photo-5424922.jpeg",
+    "P11": "https://images.pexels.com/photos/6065984/pexels-photo-6065984.jpeg",
+    "P12": "https://images.pexels.com/photos/40525747/pexels-photo-40525747.jpeg",
+    "P13": "https://images.pexels.com/photos/33038617/pexels-photo-33038617/free-photo-of-classic-herringbone-suit-with-knitted-tie.jpeg",
+    "P14": "https://images.pexels.com/photos/32420126/pexels-photo-32420126/free-photo-of-elegant-wedding-boutonniere-on-tan-suit.jpeg",
+    "P15": "https://images.pexels.com/photos/3038375/pexels-photo-3038375.jpeg",
+    "P16": "https://images.pexels.com/photos/35331038/pexels-photo-35331038/free-photo-of-close-up-of-striped-shirt-with-blue-polka-dot-tie.jpeg",
+    "P17": "https://images.pexels.com/photos/11350587/pexels-photo-11350587.jpeg",
+    "P18": "https://images.pexels.com/photos/32392710/pexels-photo-32392710/free-photo-of-elegant-silk-ties-in-a-vintage-box.jpeg",
+    "P19": "https://images.pexels.com/photos/22881932/pexels-photo-22881932/free-photo-of-footwear-of-standing-man.jpeg",
+    "P20": "https://images.pexels.com/photos/6765524/pexels-photo-6765524.jpeg",
+    "P21": "https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg",
+    "P22": "https://images.pexels.com/photos/36180263/pexels-photo-36180263.jpeg",
+    "P30": "https://images.pexels.com/photos/9965914/pexels-photo-9965914.jpeg",
+    "P31": "https://images.pexels.com/photos/5039321/pexels-photo-5039321.jpeg",
+    "P32": "https://images.pexels.com/photos/16423892/pexels-photo-16423892/free-photo-of-groom-puts-cufflinks-through-his-blouse-on-wedding-day.jpeg",
+    "P33": "https://images.pexels.com/photos/19166870/pexels-photo-19166870/free-photo-of-close-up-of-groom-with-flowers-in-suit.jpeg",
+    "P34": "https://images.pexels.com/photos/36553722/pexels-photo-36553722/free-photo-of-man-adjusting-suit-vest-outdoors.jpeg",
+    "P40": "https://images.pexels.com/photos/7679866/pexels-photo-7679866.jpeg",
+    "P41": "https://images.pexels.com/photos/9430181/pexels-photo-9430181.jpeg",
+    "P42": "https://images.pexels.com/photos/6764953/pexels-photo-6764953.jpeg",
+    "P06": "https://images.pexels.com/photos/31367059/pexels-photo-31367059.jpeg"
+  }
+}

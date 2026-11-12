@@ -1,61 +1,47 @@
 <!--meta {
-  "title": "Contactez-nous · Maison Créange, 9 rue Maximilien de Sully, Perpignan",
-  "description": "Voir les moyens de nous contacter : téléphone, courriel, formulaire, adresse et plan d'accès de la boutique Maison Créange à Perpignan.",
+  "title": "Contact et rendez-vous · Maison Créange, 9 rue Maximilien de Sully, Perpignan",
+  "description": "Demander un rendez-vous ou contacter Maison Créange : téléphone, courriel, formulaire, horaires et plan d'accès de la boutique à Perpignan.",
   "formId": "contact"
 } -->
 {{> head}}
-<body class="page-contact" data-page="contact">
-{{> tie}}
+<body class="page-contact" data-header-solid>
 {{> header}}
-{{> companion}}
 <main id="contenu">
 
-  <section class="page-hero page-hero--contact" data-header-theme="dark" data-companion="off">
-    <div class="page-hero__media" data-hero-media>
-      {{img name="facade-boutique" alt="Entrée de la boutique Créange, façade en pierre et vitrines" sizes="(max-width: 900px) 190vw, 100vw" eager pos="50% 45%"}}
-    </div>
-    <div class="page-hero__copy">
-      <p class="hero__kicker" data-hero-line>À propos de Maison Créange</p>
-      <h1 class="page-hero__title"><span class="line"><span data-hero-line>Contactez-nous</span></span></h1>
-      <p class="page-hero__lead" data-hero-line>9 rue Maximilien de Sully, au cœur de Perpignan. Du lundi au samedi.</p>
+  <section class="hero hero--short t-dark" aria-labelledby="contact-h1">
+    <div class="wrap hero__content">
+      <p class="label">Contact</p>
+      <h1 class="h1 hero__title" id="contact-h1">Demander un rendez-vous.</h1>
+      <p class="hero__sub">Une question, une cérémonie à préparer, une retouche ? Écrivez-nous ou passez à la boutique, au 9 rue Maximilien de Sully.</p>
     </div>
   </section>
 
-  <section class="contact contact--page" data-header-theme="dark">
-    <div class="quick">
-      <a class="quick__item" href="tel:+33468342927" data-reveal>
-        <span class="quick__label">Appeler la boutique</span>
-        <span class="quick__value">+33 4 68 34 29 27</span>
-      </a>
-      <a class="quick__item" href="mailto:creangeexclusif@hotmail.fr" data-reveal>
-        <span class="quick__label">Écrire un courriel</span>
-        <span class="quick__value quick__value--mail">creangeexclusif@hotmail.fr</span>
-      </a>
-      <a class="quick__item" href="#acces" data-reveal>
-        <span class="quick__label">Venir en boutique</span>
-        <span class="quick__value">9 rue Maximilien de Sully</span>
-      </a>
-    </div>
-    <div class="contact__head">
-      <h2 class="display" data-split>Écrivez-nous</h2>
-      <p data-reveal>Remplissez le formulaire ci-dessous : votre message nous est transmis directement par courriel et nous vous répondons à l'adresse que vous indiquez.</p>
-    </div>
-    {{> contact-block}}
-  </section>
-
-  <section class="access" data-header-theme="dark">
-    <div class="access__grid">
-      <div class="access__text">
-        <h2 class="display" data-split>Venir à la boutique</h2>
-        <address class="access__addr" data-reveal>Maison Créange<br>9 rue Maximilien de Sully<br>66000 Perpignan, France</address>
-        <dl class="access__hours" data-reveal>
-          <dt>Du lundi au samedi</dt><dd>10h – 12h30<br>14h – 19h</dd>
+  <section class="section t-dark" id="formulaire" aria-labelledby="form-titre" style="padding-top:clamp(56px,7vw,96px)">
+    <div class="wrap contact-layout">
+      <aside class="contact-layout__aside" data-reveal>
+        <h2 class="h3" id="form-titre">La boutique</h2>
+        <dl class="coords">
+          <div><dt>Téléphone</dt><dd><a href="tel:+33468342927">04 68 34 29 27</a></dd></div>
+          <div><dt>Courriel</dt><dd><a href="mailto:creangeexclusif@hotmail.fr">creangeexclusif@hotmail.fr</a></dd></div>
+          <div><dt>Adresse</dt><dd>9 rue Maximilien de Sully<br>66000 Perpignan</dd></div>
+          <div><dt>Itinéraire</dt><dd>{{> routes}}</dd></div>
+          <div id="horaires"><dt>Horaires</dt><dd><details class="hours" data-hours>
+      <summary><span class="hours__line">Du lundi au samedi <span class="hours__more" aria-hidden="true">+</span></span><br>10h – 12h30 et 14h – 19h<br><span class="hours__now" data-hours-now></span></summary>
+      {{> hours-table}}
+    </details></dd></div>
         </dl>
-        <figure class="access__facade"><div class="reveal-img" data-reveal-img>{{img name="facade-angle" alt="La boutique Créange à l'angle de la rue" sizes="(max-width: 760px) 100vw, 30vw"}}</div></figure>
+        <p class="site-footer__social" style="margin-top:28px;font-size:.9rem"><a class="link" href="https://www.instagram.com/creange.boutique/" rel="noopener" target="_blank">Instagram</a></p>
+      </aside>
+      <div class="contact-layout__form" data-reveal="2">
+        {{> contact-block}}
       </div>
-      {{> map}}
     </div>
   </section>
+
+  <section class="section t-dark" aria-label="Plan d'accès" style="padding-top:0">
+    <div class="wrap">{{> map}}</div>
+  </section>
+
 </main>
 {{> footer}}
 {{> scripts}}

@@ -1,0 +1,22 @@
+<section class="section t-dark" aria-labelledby="visite-titre">
+  <div class="wrap visit">
+    <div class="visit__media">
+      {{ph id="P10" ratio="3/2" title="La boutique, de l'intérieur" brief="L'intérieur de la boutique en plan large depuis l'entrée : portants de costumes, table de chemises pliées, lumière chaude. Pas de client, rien qui traîne sur le comptoir." alt="Portants de vêtements dans une boutique aux tons bois"}}
+    </div>
+    <div class="visit__text" data-reveal="2">
+      <p class="label">La boutique</p>
+      <h2 class="h2" id="visite-titre">9 rue Maximilien de Sully, Perpignan.</h2>
+      <dl class="coords">
+        <div><dt>Horaires</dt><dd><details class="hours" data-hours>
+      <summary><span class="hours__line">Du lundi au samedi <span class="hours__more" aria-hidden="true">+</span></span><br>10h – 12h30 et 14h – 19h<br><span class="hours__now" data-hours-now></span></summary>
+      {{> hours-table}}
+    </details></dd></div>
+        <div><dt>Téléphone</dt><dd><a href="tel:+33468342927">04 68 34 29 27</a></dd></div>
+        <div><dt>Itinéraire</dt><dd>{{> routes}}</dd></div>
+      </dl>
+      <div class="actions">
+        <a class="btn btn--solid" href="/contactez-nous/?sujet=rendez-vous#formulaire">Demander un rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>

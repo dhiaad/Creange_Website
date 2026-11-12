@@ -3,15 +3,16 @@
   "description": "Cette page n'existe pas ou a été déplacée."
 } -->
 {{> head}}
-<body class="page-404" data-page="404">
-{{> tie}}
+<body class="page-404" data-header-solid>
 {{> header}}
 <main id="contenu">
-  <section class="legal-hero legal-hero--full" data-header-theme="dark">
-    <svg class="lost-tie" viewBox="0 0 60 200" aria-hidden="true"><use href="#tie"/></svg>
-    <h1 class="legal-hero__title">Cette page s'est dénouée.</h1>
-    <p class="legal-hero__text">L'adresse demandée n'existe pas ou a été déplacée.</p>
-    <a class="btn btn--light" href="/"><span class="btn__label">Retour à l'accueil</span></a>
+  <section class="hero hero--short t-dark" aria-labelledby="h404" style="min-height:80svh">
+    <div class="wrap hero__content">
+      <p class="label">Erreur 404</p>
+      <h1 class="h1 hero__title" id="h404">Cette page n'existe pas.</h1>
+      <p class="hero__sub">Elle a peut-être été déplacée. Les collections, elles, sont toujours là.</p>
+      <div class="actions"><a class="btn btn--solid" href="/">Retour à l'accueil</a><a class="link" href="/collections/">Voir les collections</a></div>
+    </div>
   </section>
 </main>
 {{> footer}}

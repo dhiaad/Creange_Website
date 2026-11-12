@@ -1,35 +1,42 @@
-<footer class="site-footer" data-header-theme="dark">
-  <div class="site-footer__top">
-    <a class="site-footer__brand" href="/">
-      <svg class="site-footer__seal" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="51" stroke-width=".6" opacity=".7"/><text x="60" y="61" text-anchor="middle" dominant-baseline="central">C</text></svg>
-      <span class="brand__maison">Maison</span>
-      <span class="site-footer__name">Créange</span>
-      <span class="site-footer__since">Perpignan, depuis 1875</span>
-    </a>
-    <div class="site-footer__cols">
-      <div>
-        <h2 class="site-footer__h">La boutique</h2>
-        <address>9 rue Maximilien de Sully<br>66000 Perpignan, France</address>
-        <p class="site-footer__hours">Du lundi au samedi<br>10h – 12h30 et 14h – 19h</p>
+<footer class="site-footer t-dark">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <a class="site-footer__brand" href="/">
+        <span class="brand__maison">Maison</span>
+        <span class="site-footer__name">Créange</span>
+        <span class="site-footer__since">Mode masculine, Perpignan</span>
+      </a>
+      <div class="site-footer__cols">
+        <div>
+          <h2 class="site-footer__h">La boutique</h2>
+          <address>9 rue Maximilien de Sully<br>66000 Perpignan</address>
+          <div style="margin-top:12px"><details class="hours" data-hours>
+      <summary><span class="hours__line">Du lundi au samedi <span class="hours__more" aria-hidden="true">+</span></span><br>10h – 12h30, 14h – 19h<br><span class="hours__now" data-hours-now></span></summary>
+      {{> hours-table}}
+    </details></div>
+        </div>
+        <div>
+          <h2 class="site-footer__h">Nous joindre</h2>
+          <p><a href="tel:+33468342927">04 68 34 29 27</a><br><a href="mailto:creangeexclusif@hotmail.fr">Écrire un courriel</a></p>
+          <p class="site-footer__social"><a href="https://www.instagram.com/creange.boutique/" rel="noopener" target="_blank">Instagram</a><a href="https://www.facebook.com/profile.php?id=100089297743063" rel="noopener" target="_blank">Facebook</a></p>
+        </div>
+        <nav aria-label="Pages du site">
+          <h2 class="site-footer__h">Le site</h2>
+          <ul>
+            <li><a href="/collections/">Collections</a></li>
+            <li><a href="/ceremonie/">Cérémonie</a></li>
+            <li><a href="/a-propos-de-nous/">La maison</a></li>
+            <li><a href="/contactez-nous/">Contact</a></li>
+            <li><a href="/avis-juridique/">Mentions légales</a></li>
+            <li><a href="/politique-de-confidentialite/">Confidentialité</a></li>
+            <li><button class="to-top" type="button" data-consent-open style="font-size:inherit;color:inherit">Gestion des cookies</button></li>
+          </ul>
+        </nav>
       </div>
-      <div>
-        <h2 class="site-footer__h">Nous joindre</h2>
-        <p><a href="tel:+33468342927">+33 4 68 34 29 27</a><br><a href="mailto:creangeexclusif@hotmail.fr">creangeexclusif@hotmail.fr</a></p>
-        <p class="site-footer__social"><a href="https://www.instagram.com/creange.boutique/" rel="noopener" target="_blank">Instagram</a><a href="https://www.facebook.com/profile.php?id=100089297743063" rel="noopener" target="_blank">Facebook</a></p>
-      </div>
-      <nav aria-label="Pages du site">
-        <h2 class="site-footer__h">Pages</h2>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/a-propos-de-nous/">À propos de nous</a></li>
-          <li><a href="/contactez-nous/">Contactez-nous</a></li>
-          <li><a href="/avis-juridique/">Avis juridique</a></li>
-        </ul>
-      </nav>
     </div>
-  </div>
-  <div class="site-footer__bottom">
-    <p>© Droits d'auteur. Tous droits réservés. Exclusivité masculine Créange, SIRET 429514797 00019.</p>
-    <button class="to-top" type="button" data-to-top>Haut de page</button>
+    <div class="site-footer__bottom">
+      <p>© {{year}} Exclusivité masculine Créange · SIRET 429514797 00019</p>
+      <button class="to-top" type="button" data-to-top>Haut de page ↑</button>
+    </div>
   </div>
 </footer>

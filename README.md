@@ -1,6 +1,6 @@
 # Maison Créange : nouveau site vitrine
 
-Site statique (HTML, CSS, JavaScript) avec GSAP + ScrollTrigger embarqués localement.
+Site statique (HTML, CSS, JavaScript), sans bibliothèque externe.
 Aucun service externe n'est chargé sans action du visiteur : polices auto-hébergées, carte Google Maps soumise à consentement.
 
 ## Arborescence
@@ -13,11 +13,11 @@ site/                      ← dossier à mettre en ligne tel quel (racine du do
   avis-juridique/          Avis juridique
   404.html
   assets/css/main.css      styles (palette et typographies en variables CSS)
-  assets/js/main.js        intro (cravate nouée), cravate compagnon, scènes immersives, animations, formulaire, carte
+  assets/js/main.js        en-tête, menu mobile, apparitions au défilement, formulaire, carte
   assets/img/              photos du site actuel, en WebP + JPEG (640 / 1100 / 1600 px)
                            cut-*.webp : produits détourés (transparence) · detail-*.webp : gros plans
-  assets/fonts/            Cormorant Garamond + Manrope (woff2, aussi intégrées dans main.css pour fonctionner hors serveur)
-  assets/vendor/           GSAP 3.12.5 + ScrollTrigger
+  assets/img/photos/       photos du shooting (P01.jpg…), qui remplacent les cadres vides
+  assets/fonts/            Cormorant Garamond + Manrope (woff2)
 src/                       ← sources des pages (en-tête, pied de page et formulaire partagés)
 build.mjs                  assemble src/ → site/
 ```
@@ -48,28 +48,27 @@ Le formulaire envoie réellement le message par courriel via **FormSubmit** (htt
 - Pour utiliser un autre service (Web3Forms, Formspree, un script PHP chez l'hébergeur…), changer l'attribut `action` du formulaire dans `src/partials/contact-block.html`. Le script considère l'envoi réussi uniquement si la réponse est HTTP 2xx avec `"success": true`.
 - Champs : Nom (obligatoire), Courriel (obligatoire, ajouté pour pouvoir répondre), Téléphone (facultatif), Message, case de consentement (obligatoire, texte d'origine conservé). Un champ piège anti-robots est inclus.
 
-## Expérience immersive (page d'accueil)
+## Direction artistique
 
-Sept scènes enchaînées au défilement (GSAP ScrollTrigger, scènes « collées » en `position: sticky`) :
-01 Entrée (on franchit la vitrine) · 02 Costumes (la veste quitte le portant, détails au survol) · 03 Chemises (la chemise glisse de l'étagère, loupes col et poignet) · 04 Accessoires (la cravate tombe et oscille) · 05 Chaussures (sur socle, rotation légère, balayage de lumière) · 06 Savoir-faire (retouches, cérémonie) · 07 Maison (1875, chiffres, contact, carte).
+- Site éditorial, sobre : peu de texte, grandes photos, beaucoup d'espace, apparitions douces au défilement (aucune bibliothèque d'animation).
+- Palette « lin et tabac » (variables en tête de main.css) : espresso #17120F, tabac #261D17, lin #EDE7DD, craie #F6F2EB (texte sur fond sombre), encre #1D1915 (texte sur fond clair), cognac #A85F30 (accent). Aucune couleur froide : les costumes bleus sont la seule tache de bleu de la page, ce qui les met en valeur.
+- Les sections alternent fond sombre (`t-dark`, `t-tabac`) et fond clair (`t-light`, `t-lin2`) ; chaque classe de thème fixe ses propres couleurs de texte, de filet et d'accent.
+- Typographies : Cormorant Garamond (titres) et Manrope (texte), auto-hébergées.
 
-- Les timelines sont dans la fonction `scenes()` de main.js ; chaque scène a sa hauteur de défilement dans main.css (`.scene`).
-- Une cravate « compagnon » suit la lecture sur ordinateur, avec une physique de pendule pilotée par la vitesse de défilement. Elle s'efface au-dessus des photos et compositions (`data-companion="off"` sur une section).
-- Mobile (≤ 900 px) : la même narration que sur ordinateur, recomposée en portrait. Les scènes restent collantes (CSS `position: sticky`, aucun blocage du défilement tactile) et chaque timeline a ses distances et tailles mobiles (`ctx.conditions.mob` dans `scenes()`). Téléphone à l'horizontale : façade à gauche, texte à droite.
-- Sans animation (préférence « réduire les animations » ou script indisponible) : lecture en flux, tout le contenu visible.
+## Photos : cadres vides et liste de prises de vue
 
-## Direction artistique « luxe sombre »
+- Les emplacements sans photo satisfaisante sont des cadres vides numérotés : `{{ph id="P01" ratio="4/5" title="…" brief="…"}}` dans `src/pages/`.
+- `node build.mjs` génère `PHOTOS-A-REALISER.md` : la liste de toutes les photos à prendre, avec format, page et description.
+- Pour remplacer un cadre : déposer `P01.jpg` (ou `.webp`) dans `site/assets/img/photos/` puis relancer `node build.mjs`. Le cadre devient automatiquement la photo.
+- Photos existantes conservées (gros plans cohérents) : `{{pic src="atelier-gilet.webp" ratio="1/1" alt="…"}}`.
 
-- Palette (variables en tête de main.css) : bleu marine #101F36, bleu nuit #172943, vert profond #123D32, vert sombre #0B241E, noir charbon #111111, or vieilli #98763D, blanc cassé #F2EFE7.
-- Les sections ne sont jamais des aplats : chaque scène a une couleur de bord (`--edge-top`, `--edge-bot`) identique à celle de la section voisine, ce qui crée des fondus marine → vert → charbon.
-- L'or est réservé aux filets, puces, soulignements et à quelques chiffres. Les petits textes restent en blanc cassé pour la lisibilité.
-- Un grain photographique très léger (SVG inline) donne de la matière aux fonds.
-- Section savoir-faire : portrait éditorial (`homme-costume-bleu`) et trois gros plans recadrés (`atelier-*.webp`) tirés des photos existantes.
-- Pas de Three.js : aucun modèle 3D fidèle des produits n'existe, une 3D approximative ferait moins réel que les photos.
+## Pages
+
+Accueil · Collections (`/collections/`) · Cérémonie (`/ceremonie/`) · La maison (`/a-propos-de-nous/`) · Contact et rendez-vous (`/contactez-nous/`) · Avis juridique. Le lien `?sujet=ceremonie` (ou `rendez-vous`, `retouche`) pré-remplit le type de demande du formulaire.
 
 ## Accessibilité et performance
 
-- `prefers-reduced-motion` : pas d'intro, pas de scènes animées ni de parallaxe ; tout le contenu est visible immédiatement.
+- `prefers-reduced-motion` : aucune animation, tout le contenu est visible immédiatement.
 - Navigation clavier, lien d'évitement, focus visible, menu mobile avec Échap et focus piégé.
 - Sans JavaScript, toutes les pages restent lisibles et complètes.
 - Données structurées `ClothingStore` (schema.org), balises Open Graph, `sitemap.xml`, `robots.txt`.

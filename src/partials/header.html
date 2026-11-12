@@ -1,18 +1,18 @@
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 <header class="site-header" data-header>
-  <div class="site-header__inner">
+  <div class="site-header__inner wrap">
     <a class="brand" href="/" aria-label="Maison Créange, retour à l'accueil">
-      <svg class="brand__knot" viewBox="0 0 60 200" aria-hidden="true"><use href="#tie"/></svg>
-      <span class="brand__words"><span class="brand__maison">Maison</span><span class="brand__name">Créange</span></span>
+      <span class="brand__maison">Maison</span><span class="brand__name">Créange</span>
     </a>
     <nav class="site-nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="/"{{navHome}}>Accueil</a></li>
-        <li><a href="/a-propos-de-nous/"{{navAbout}}>À propos de nous</a></li>
-        <li><a href="/contactez-nous/"{{navContact}}>Contactez-nous</a></li>
+        <li><a href="/collections/"{{navCollections}}>Collections</a></li>
+        <li><a href="/ceremonie/"{{navCeremonie}}>Cérémonie</a></li>
+        <li><a href="/a-propos-de-nous/"{{navAbout}}>La maison</a></li>
+        <li><a href="/contactez-nous/"{{navContact}}>Contact</a></li>
       </ul>
     </nav>
-    <a class="header-tel" href="tel:+33468342927">04 68 34 29 27</a>
+    <a class="btn header-cta" href="/contactez-nous/?sujet=rendez-vous#formulaire">Demander un rendez-vous</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
       <span class="menu-toggle__label">Menu</span>
       <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
@@ -23,14 +23,19 @@
   <nav aria-label="Navigation mobile">
     <ol class="menu-mobile__list">
       <li><a href="/"{{navHome}}>Accueil</a></li>
-      <li><a href="/a-propos-de-nous/"{{navAbout}}>À propos de nous</a></li>
-      <li><a href="/contactez-nous/"{{navContact}}>Contactez-nous</a></li>
-      <li><a href="/avis-juridique/"{{navLegal}}>Avis juridique</a></li>
+      <li><a href="/collections/"{{navCollections}}>Collections</a></li>
+      <li><a href="/ceremonie/"{{navCeremonie}}>Cérémonie</a></li>
+      <li><a href="/a-propos-de-nous/"{{navAbout}}>La maison</a></li>
+      <li><a href="/contactez-nous/"{{navContact}}>Contact</a></li>
     </ol>
   </nav>
   <div class="menu-mobile__foot">
-    <p>9 rue Maximilien de Sully<br>66000 Perpignan</p>
-    <p><a href="tel:+33468342927">+33 4 68 34 29 27</a><br><a href="mailto:creangeexclusif@hotmail.fr">creangeexclusif@hotmail.fr</a></p>
+    <a class="btn btn--solid" href="/contactez-nous/?sujet=rendez-vous#formulaire">Demander un rendez-vous</a>
+    <p>9 rue Maximilien de Sully, 66000 Perpignan<br>Du lundi au samedi, 10h – 12h30 et 14h – 19h</p>
+    <p><a href="tel:+33468342927">04 68 34 29 27</a></p>
   </div>
 </div>
-<div class="curtain" aria-hidden="true"><svg class="curtain__mark" viewBox="0 0 120 120"><defs><linearGradient id="cb-brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E4620"/><stop offset=".38" stop-color="#C9A86A"/><stop offset=".55" stop-color="#98763D"/><stop offset="1" stop-color="#4A3718"/></linearGradient></defs><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="51" stroke-width=".6" opacity=".7"/><text x="60" y="61" text-anchor="middle" dominant-baseline="central" fill="url(#cb-brass)">C</text></svg></div>
+<div class="mbar" data-mbar>
+  <a class="btn btn--solid" href="/contactez-nous/?sujet=rendez-vous#formulaire">Rendez-vous</a>
+  <a class="btn" href="tel:+33468342927">Appeler</a>
+</div>
